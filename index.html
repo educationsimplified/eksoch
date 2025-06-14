@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Ek Soch - Journalism MGKVP</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+ <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #343a40, #212529);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .section-heading {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .member-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #212529;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.3rem;
+    }
+
+    #sidebar {
+      height: 100vh;
+      background: #212529;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1030;
+    }
+
+    #sidebar.show {
+      left: 0;
+    }
+
+    #sidebar a {
+      color: white;
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+    }
+
+    #sidebar a:hover {
+      background: #343a40;
+    }
+
+    #main-content {
+      transition: margin-left 0.3s ease;
+    }
+
+    #main-content.shift {
+      margin-left: 250px;
+    }
+
+    @media (max-width: 768px) {
+      #main-content.shift {
+        margin-left: 0;
+      }
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1050;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .glow-btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    color: #ffffff;
+    background: #111;
+    border: 2px solid #0ff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-btn:hover {
+    background: rgb(255, 255, 255);
+    color: #000;
+    box-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px rgb(0, 251, 255);
+    border-color: #000;
+    text-decoration: none;
+    transform: scale(1.05);
+  }
+  .floating-quote {
+    animation: floatDrift 2s ease-in-out infinite;
+  }
+
+  @keyframes floatDrift {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .team-card {
+    background: #fff;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #000;
+    animation: typing 6s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+    max-width: 100%;
+    white-space: normal; /* ✅ allow text to wrap */
+    word-break: break-word;
+    font-size: 0.95rem;
+  }
+
+  @keyframes typing {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+    10% {
+      max-height: 20px;
+      opacity: 1;
+    }
+    50% {
+      max-height: 200px;
+    }
+    100% {
+      max-height: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes blink-caret {
+    0%, 100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #000;
+    }
+  }
+
+  /* Responsive Font Tweaks */
+  @media (max-width: 768px) {
+    .team-card h5 {
+      font-size: 1.1rem;
+    }
+
+    .typewriter {
+      font-size: 0.9rem;
+    }
+  }
+
+  .btn-danger {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #360005;
+  transform: scale(1.05);
+}
+
+  
+  </style>
+</head>
+
+<body>
+  <div class="toggle-btn" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div id="sidebar">
+   
+    <a href="#team">Our Team</a>
+    <a href="#group">Group Photograph</a>
+    <a href="#bts">BTS</a>
+    <a href="#video">Our Videos</a>
+    <a href="#thumbnail">Old Thumbnails</a>
+    <a href="https://instagram.com/team.eksoch" target="_blank">Instagram</a>
+    <a href="https:teameksoch.blogspot.com" target="_blank">Our Blog</a>
+    <a href="https://chat.whatsapp.com/Im7qVdo3SgX22weOw8FfdZ" target="_blank">WhatsApp Group</a>
+    <a href="https://youtube.com/@eksochoffical?si=-l9Bxi31CoMnoHuW" target="_blank">New Youtube Channel</a>
+  </div>
+
+  <div id="main-content">
+    <header>
+      <h1>Team Ek Soch</h1>
+      <p>Our Work in MGKVP College - A Student Educational Channel for News and Education</p>
+    </header>
+
+    <!-- LOGO + LOGO SECTION -->
+<div class="container my-4">
+  <div class="row align-items-center text-center">
+    <!-- Logo 1 -->
+    <div class="col-4 col-md-4">
+      <img src="logos/logo_1.png" class="img-fluid" alt="Logo 1">
+    </div>
+
+    <!-- Plus Sign -->
+    <div class="col-4 col-md-4">
+      <i class="fas fa-plus fa-2x text-dark"></i>
+    </div>
+
+    <!-- Logo 2 -->
+    <div class="col-4 col-md-4">
+      <img src="logos/logo_2.png" class="img-fluid" alt="Logo 2">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    <!-- TEAM MEMBERS SECTION -->
+<div class="container my-5">
+  <div id="team" class="section-heading text-center mb-4 text-uppercase fw-bold fs-3" id="team">Team Members</div>
+  <div class="row justify-content-center">
+
+    <!-- Abhishek -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Abhishek</h5>
+        <p class="typewriter text-muted">Script Writer, Ground Reporter</p>
+      <p class="text-info mt-2 small">Ground Reporting Head</p>
+      </div>
+    </div>
+
+    <!-- Laiba -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Laiba</h5>
+        <p class="typewriter text-muted">Ground Reporter, Script Writer, Voice Anchor</p>
+      <p class="text-info mt-2 small">Co-Leader</p>
+      </div>
+    </div>
+
+    <!-- Shalooshi -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Shalooshi</h5>
+        <p class="typewriter text-muted">Ground Reporter, Video Anchor, Script Writer</p>
+      </div>
+    </div>
+
+     <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Himanshu</h5>
+        <p class="typewriter text-muted">Hardcore Ground Reporter</p>
+      </div>
+    </div>
+
+    <!-- Sahil -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Sahil</h5>
+        <p class="typewriter text-muted">Video Editor, Graphic Designer, Camera Man, Studio Setup Director, Animation</p>
+        <p class="text-info mt-2 small">Director</p>
+      </div>
+    </div>
+
+    <!-- Pushpesh -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Pushpesh</h5>
+        <p class="typewriter text-muted">Script Writer</p>
+      </div>
+    </div>
+
+    <!-- Shreya -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Shreya</h5>
+        <p class="typewriter text-muted">Member Intern</p>
+        <p class="text-danger small mt-2">In Loving Memory - Rest in Peace</p>
+      </div>
+    </div>
+
+    <!-- Saniya -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Saniya</h5>
+        <p class="typewriter text-muted">Member Intern</p>
+      </div>
+    </div>
+
+    <!-- Kahkasha -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Kahkasha</h5>
+        <p class="typewriter text-muted">Script Writer, Ground Reporter, Audio Anchor</p>
+      </div>
+    </div>
+
+    <!-- Uzair -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 p-3 shadow-lg rounded text-center team-card animate__animated animate__fadeInUp">
+        <h5 class="fw-bold">Uzair</h5>
+        <p class="typewriter text-muted">Social Media Manager, Graphic Designer, Video Editor, Voice Anchor</p>
+        <p class="text-info mt-2 small">Co-Leader Strategist</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- EK SOCH QUOTE SECTION WITH FLOATING EFFECT -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <blockquote class="blockquote text-center p-5 shadow-lg rounded bg-dark text-light floating-quote">
+        <p class="mb-0 display-6 fw-bold fst-italic">
+          "Ek Soch started with a networking of intelligence from various domains, aligned together to achieve a common goal — and also to brush up their skills in the art of journalism and the course they were pursuing."
+        </p>
+        <footer class="blockquote-footer mt-4 text-white">— Team Ek Soch</footer>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+
+      <div class="container my-5">
+        <h2 class="text-center mb-5 display-5 fw-bold">EK SOCH GROUP PHOTOGRAPH</h2>
+        <div id="group" class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="ratio ratio-16x9">
+              <img src="team.jpg" class="img-fluid rounded shadow" alt="Team Ek Soch">
+            </div>
+            <div class="text-center mt-4">
+              <h4>Ek Soch Team Members</h4>
+              <p class="lead">
+                Visit to a radio station on voice acting and radio show workshop – an unforgettable learning experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- BEHIND THE SCENE VIDEO SECTION -->
+<div class="container my-5">
+  <h2 class="text-center mb-5 display-5 fw-bold">BEHIND THE SCENE VIDEO</h2>
+
+  <div id="bts" class="row g-4 justify-content-center">
+
+    <!-- Local Video 1 -->
+    <div class="col-md-6 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <video class="w-100 h-100 object-fit-cover" controls>
+          <source src="video/video_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Local Video 2 -->
+    <div class="col-md-6 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <video class="w-100 h-100 object-fit-cover" controls>
+          <source src="video/video_2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      
+      
+     <!-- OUR VIDEOS SECTION -->
+<div class="container my-5" id="our-videos">
+  <h2 class="text-center mb-5 display-5 fw-bold">OUR VIDEOS</h2>
+  <div id="video" class="row justify-content-center">
+
+     
+    
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <!-- Working YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/507ue-MCngU?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">MANIKARNIKA के डोम राजा | DOCUMENTRY | DOME RAJA OF VARANASI | EK SOCH</h5>
+      <p class="card-text text-muted">
+DOCUMENTRY MADE BY UZAIR & KAHKASHA, KAHKASHA GIVEN THE VOICE AND EDITING THUMBNAIL ETC DONE BY UZAIR.
+      </p>
+      <a href="https://youtu.be/507ue-MCngU" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+ </div>
+
+
+
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <!-- Working YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/MeT6wJxWPf4?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">VARANASI THE CITY OF GHATS | A SHORT DOCUMENTARY | EK SOCH</h5>
+      <p class="card-text text-muted">
+        DOCUMENTRY MADE BY UZAIR AHMED, SCRIPT WRITING AND EDITING AND THUMBNAIL ETC DONE BY UZAIR.
+      </p>
+      <a href="https://youtu.be/MeT6wJxWPf4" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+ </div>
+
+
+
+
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <!-- Working YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/CZ4no_95DTs?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">DOCUMENTRY - Bharat Mata Mandir  | A Tribute to Mother India in Varanasi | EK SOCH</h5>
+      <p class="card-text text-muted">
+        DOCUMENTRY MADE BY UZAIR & KAHKASHA, KAHKASHA GIVEN THE VOICE AND GROUND REPORTING AND EDITING THUMBNAIL ETC DONE BY UZAIR.
+      </p>
+      <a href="https://youtu.be/CZ4no_95DTs" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+ </div>
+
+
+
+
+
+
+ <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/SDhEL0aqzC0?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">GROUND REPORTING | PM MODI INAUGURATED SWARVEDH MAHAMANDIR | EK SOCH</h5>
+      <p class="card-text text-muted">
+        On-ground coverage from Varanasi as PM Modi inaugurates the grand Swarvedh Mahamandir. A report by the Ek Soch team.
+      </p>
+      <a href="https://youtu.be/SDhEL0aqzC0" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/2zqBK8EzL7Y?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">Bharat Mein Naye Sansad Bhavan Ka Maha Uddghatan | New Parliament of India | EK SOCH</h5>
+      <p class="card-text text-muted">
+        A complete overview of the inauguration of India’s new Parliament building — significance, reactions, and visuals.
+      </p>
+      <a href="https://youtu.be/2zqBK8EzL7Y" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/JGmDZcrwHuk?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">REVISED ANTRIM BUDGET 2024 | CURRENT AFFAIR Breakdown | EK SOCH OFFICIAL</h5>
+      <p class="card-text text-muted">
+        A detailed explanation of the Revised Interim Budget 2024 with simplified breakdowns and student-friendly insights.
+      </p>
+      <a href="https://youtu.be/JGmDZcrwHuk" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/6Awg6oX0mSA?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">UNDERSTAND UCC | EXPLANATION WITH PUBLIC OPINION| EK SOCH</h5>
+      <p class="card-text text-muted">
+        What is the Uniform Civil Code (UCC)? Explained with real public opinions and expert breakdown by Ek Soch.
+      </p>
+      <a href="https://youtu.be/6Awg6oX0mSA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/PWARsskRAoU?rel=0&modestbranding=1"
+              title="Ek Soch - MGKVP Journalism"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">5 MIN KI BAAT AAPKE SAATH | EK SOCH OPINIONS</h5>
+      <p class="card-text text-muted">
+        A fresh opinion segment where Ek Soch shares thought on something.
+      </p>
+      <a href="https://youtu.be/PWARsskRAoU" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+
+<!-- Card 1: Podcast on Financial Literacy -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <!-- Working YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/fefASp6jVEA?rel=0&modestbranding=1"
+              title="Podcast on Financial Literacy | Ek Soch"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">PODCAST ON FINANCIAL LITERACY | EK SOCH</h5>
+      <p class="card-text text-muted">
+        An engaging podcast episode on the basics of financial literacy—budgeting, saving, investing, and more. Must-watch for every student!
+      </p>
+      <a href="https://youtu.be/fefASp6jVEA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 2: Ek Soch Coming Soon Teaser -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <!-- Working YouTube Embed -->
+      <iframe src="https://www.youtube.com/embed/D367vAkzW0A?rel=0&modestbranding=1"
+              title="Ek Soch Coming Soon Teaser"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">EK SOCH COMING SOON | #Shorts</h5>
+      <p class="card-text text-muted">
+        A sneak peek into what's coming next from Ek Soch! Stay tuned for fresh content, new perspectives, and bold journalism.
+      </p>
+      <a href="https://youtu.be/D367vAkzW0A" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Video 1 -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp"> 
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/HNur0d2OCME?rel=0&modestbranding=1"
+              title="COVID 19 UPDATE - H3N2 INFLUENZA A VIRUS #shorts #youtube #eksoch"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">COVID 19 UPDATE - H3N2 INFLUENZA A VIRUS #shorts #youtube #eksoch</h5>
+      <p class="card-text text-muted">
+        Stay updated with this short news byte on the H3N2 Influenza virus by Ek Soch.
+      </p>
+      <a href="https://youtu.be/HNur0d2OCME" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Video 2 -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp"> 
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/KnD98ye6Odg?rel=0&modestbranding=1"
+              title="Happy Independence Day to all the Supporters of EK SOCH #eksoch #indepenceday #shorts"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">Happy Independence Day to all the Supporters of EK SOCH #eksoch #indepenceday #shorts</h5>
+      <p class="card-text text-muted">
+        A heartfelt message from Ek Soch on this Independence Day celebration.
+      </p>
+      <a href="https://youtu.be/KnD98ye6Odg" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Video 3 -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp"> 
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/EORm64VmFzo?rel=0&modestbranding=1"
+              title="NASA & ISRO COLLAB #trending #shorts #news #ytshorts"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">NASA & ISRO COLLAB #trending #shorts #news #ytshorts</h5>
+      <p class="card-text text-muted">
+        Catch the latest collaboration between NASA and ISRO explained by Ek Soch.
+      </p>
+      <a href="https://youtu.be/EORm64VmFzo" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Video 4 -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp"> 
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/nAsqxAX2uiA?rel=0&modestbranding=1"
+              title="COP 28 UAE | WHAT IS COP 28 FULL DETAILS| ABOUT COP 28 | EK SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">COP 28 UAE | WHAT IS COP 28 FULL DETAILS| ABOUT COP 28 | EK SOCH</h5>
+      <p class="card-text text-muted">
+        Get complete insights on COP 28 UAE by the Ek Soch Team. Informative and timely!
+      </p>
+      <a href="https://youtu.be/nAsqxAX2uiA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/YAIxb6lLhUg?rel=0&modestbranding=1"
+              title="MP aur Laadli Behan Yojna | GROUND REPORTING | EK SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">MP aur Laadli Behan Yojna | GROUND REPORTING | EK SOCH</h5>
+      <p class="card-text text-muted">
+        Ground report on the impact of Laadli Behan Yojna in MP. Exclusive by Ek Soch.
+      </p>
+      <a href="https://youtu.be/YAIxb6lLhUg" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/GWL14pOsOjQ?rel=0&modestbranding=1"
+              title="INTRODUCTION OF OUR NEW ANCHOR | EK SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">INTRODUCTION OF OUR NEW ANCHOR | EK SOCH</h5>
+      <p class="card-text text-muted">
+        Meet our new face and voice. A fresh perspective joins the Ek Soch team.
+      </p>
+      <a href="https://youtu.be/GWL14pOsOjQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/9jSSE4dOrOo?rel=0&modestbranding=1"
+              title="IRAN VS PAKISTAN | AIR STRIKES | BREAKING NEWS | Ek Soch"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">IRAN VS PAKISTAN | AIR STRIKES | BREAKING NEWS | Ek Soch</h5>
+      <p class="card-text text-muted">
+        Shocking updates on the geopolitical conflict. Stay informed with Ek Soch.
+      </p>
+      <a href="https://youtu.be/9jSSE4dOrOo" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/lVXw4I6futU?rel=0&modestbranding=1"
+              title="117 ACCOUNTS RELATED TO FARMER PROTEST BLOCKED ON TWITTER X | RISE OF DICTATORSHIP IN INDIA"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">117 ACCOUNTS BLOCKED | FARMER PROTEST | RISE OF DICTATORSHIP</h5>
+      <p class="card-text text-muted">
+        Digital crackdown on dissent? A deep dive by Ek Soch.
+      </p>
+      <a href="https://youtu.be/lVXw4I6futU" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/UDFyeG3-oZQ?rel=0&modestbranding=1"
+              title="ANIMAL TRAILER REVIEW | RANBIR KAPOOR | BOBBY DEOL | Ek SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">ANIMAL TRAILER REVIEW | RANBIR KAPOOR | Ek SOCH</h5>
+      <p class="card-text text-muted">
+        Trailer breakdown and reactions! What to expect from the much-awaited release.
+      </p>
+      <a href="https://youtu.be/UDFyeG3-oZQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/6hNYeynl620?rel=0&modestbranding=1"
+              title="NH7 MYSTERIOUS TUNNEL | EK SOCH #shorts #trending #history"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top">
+      </iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">NH7 MYSTERIOUS TUNNEL | EK SOCH #shorts</h5>
+      <p class="card-text text-muted">
+        Discover the secrets behind the mysterious tunnel on NH7 in this historical short!
+      </p>
+      <a href="https://youtu.be/6hNYeynl620" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/AvaRg5SsAoI?rel=0&modestbranding=1"
+              title="BJP VS CONGRESS | Karnataka Religious Institutions Bill 2024 | EK SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top"></iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">BJP VS CONGRESS | Karnataka Religious Institutions Bill 2024 | EK SOCH</h5>
+      <p class="card-text text-muted">
+        A deep dive into the Karnataka Religious Institutions Bill 2024 and the BJP vs Congress debate in the Rajya Sabha.
+      </p>
+      <a href="https://youtu.be/AvaRg5SsAoI" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+  <div class="card shadow border-0 rounded-4">
+    <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+      <iframe src="https://www.youtube.com/embed/0gtqhPXCz1c?rel=0&modestbranding=1"
+              title="OUR YOUTUBE JOURNEY | 500 SUBSCRIBERS SPECIAL | EK SOCH"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="rounded-top"></iframe>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title fw-semibold">OUR YOUTUBE JOURNEY | 500 SUBSCRIBERS SPECIAL | EK SOCH</h5>
+      <p class="card-text text-muted">
+        Celebrating a milestone with our Ek Soch family — the story of how we reached 500 subscribers. Thank you for the support!
+      </p>
+      <a href="https://youtu.be/0gtqhPXCz1c" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+        🔗 Watch on YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+
+   
+   <!-- INDIAN UNION BUDGET 2023 Explained -->
+   <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/x2cyY9DjwXw?rel=0&modestbranding=1"
+                title="Indian Union Budget 2023 Explained"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">INDIAN UNION BUDGET 2023 Explained | केंद्रीय बजट 2023 | Ek Soch</h5>
+        <p class="card-text text-muted">A breakdown of the key highlights of India’s Union Budget 2023 and how it impacts the common man. Explained in simple language.</p>
+        <a href="https://youtu.be/x2cyY9DjwXw" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- GREEN GROWTH IN INDIA -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/7Ao03B1xG50?rel=0&modestbranding=1"
+                title="Green Growth in India"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">GREEN GROWTH IN INDIA Ft. HYDROGEN TRAINS | भारत में हरित विकास | EK SOCH</h5>
+        <p class="card-text text-muted">Explore India’s strides towards sustainable development through innovations like hydrogen-powered trains. An insightful environmental report.</p>
+        <a href="https://youtu.be/7Ao03B1xG50" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- INSIDE MGKVP ART FACULTY -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/rZNe6eTqeQI?rel=0&modestbranding=1"
+                title="Inside MGKVP Art Faculty"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">INSIDE MGKVP ART FACULTY | महात्मा गांधी काशी विद्यापीठ में टेराकोटा कला के छात्र | Ek Soch</h5>
+        <p class="card-text text-muted">Step inside the vibrant world of MGKVP’s Art Faculty and meet students working passionately with terracotta and traditional art forms.</p>
+        <a href="https://youtu.be/rZNe6eTqeQI" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- भारतीय सड़क और राजमार्ग -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/p-Y1E2NOSOk?rel=0&modestbranding=1"
+                title="भारतीय सड़क और राजमार्ग बजट"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">भारतीय सड़क और राजमार्ग | बजट 2023 | एक सोच</h5>
+        <p class="card-text text-muted">जानिए कैसे 2023 का बजट भारतीय सड़कों और राजमार्गों को बदलने की दिशा में एक नया कदम है। देखिए विकास की पूरी तस्वीर।</p>
+        <a href="https://youtu.be/p-Y1E2NOSOk" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- INDIAN ROADS AND HIGHWAY (ENGLISH) -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/3KfTtMw-0CQ?rel=0&modestbranding=1"
+                title="Indian Roads and Highway | English"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">INDIAN ROADS AND HIGHWAY | BUDGET 2023 | EK SOCH English #budget2023</h5>
+        <p class="card-text text-muted">An English summary of the Road & Infrastructure section of Budget 2023. Learn how government initiatives aim to improve connectivity.</p>
+        <a href="https://youtu.be/3KfTtMw-0CQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- होली पर पड़ी महंगाई की मार -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/GqaNv_PcK5I?rel=0&modestbranding=1"
+                title="Holi Report by Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">होली पर पड़ी महंगाई की मार ? क्या कहती है पब्लिक। देखिए जमीनी हकीकत। EK SOCH Holi Report</h5>
+        <p class="card-text text-muted">त्योहारों पर महंगाई की मार को लेकर जनता क्या सोचती है? जानिए होली के मौके पर बाजार और लोगों की जमीनी राय।</p>
+        <a href="https://youtu.be/GqaNv_PcK5I" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+
+
+<!-- Ek Soch - Video Cards Section -->
+<div class="row">
+
+    <!-- Video 1 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/FVIIufZ_Vd8?rel=0&modestbranding=1"
+                  title="मणिकर्णिका घाट पर छोटे पंडित का मजेदार जवाब"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">मणिकर्णिका घाट पर छोटे पंडित का मजेदार जवाब - हंसी नहीं रुकेगी | Ek Soch</h5>
+          <p class="card-text text-muted">Funny and insightful conversations with a young priest at the iconic Manikarnika Ghat in Varanasi.</p>
+          <a href="https://youtu.be/FVIIufZ_Vd8" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video 2 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/C2xQtIt-70I?rel=0&modestbranding=1"
+                  title="H3N2 Influenza A Virus Explained"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">The Killer Flu: Demystifying the H3N2 Influenza A Virus | Ek Soch</h5>
+          <p class="card-text text-muted">Understand the science behind H3N2 influenza and its real-world impact, simplified by Ek Soch.</p>
+          <a href="https://youtu.be/C2xQtIt-70I" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video 3 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/yaMC0dSJrn8?rel=0&modestbranding=1"
+                  title="Varanasi Smart City Projects"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">PM Modi Revealed Varanasi's Game-Changing Projects | Ek Soch</h5>
+          <p class="card-text text-muted">A look into Varanasi's transformation into a smart city through key infrastructure and technology initiatives.</p>
+          <a href="https://youtu.be/yaMC0dSJrn8" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video 4 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/dEBmsHQFc_k?rel=0&modestbranding=1"
+                  title="ISRO Satellite Launch"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">ISRO Launches 36 Satellites | भारत का सबसे बड़ा रॉकेट मिशन | Ek Soch</h5>
+          <p class="card-text text-muted">Coverage and breakdown of ISRO’s historic launch of 36 satellites in one mission. Proud moment for India!</p>
+          <a href="https://youtu.be/dEBmsHQFc_k" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video 5 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/xozA9eKLIqs?rel=0&modestbranding=1"
+                  title="NCERT Controversy Explained"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">Erasing India's Past? NCERT and the Mughal Chapter Controversy | Ek Soch</h5>
+          <p class="card-text text-muted">A bold take on NCERT textbook changes and the debate over removing Mughal history from school curriculum.</p>
+          <a href="https://youtu.be/xozA9eKLIqs" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Video 6 -->
+    <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+      <div class="card shadow border-0 rounded-4">
+        <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+          <iframe src="https://www.youtube.com/embed/YzTpTXvYCSw?rel=0&modestbranding=1"
+                  title="AFSPA and Manipur Reality"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  class="rounded-top"></iframe>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-semibold">MANIPUR | REALITY OF AFSPA ACT | EK SOCH</h5>
+          <p class="card-text text-muted">Unveiling the real-life implications of AFSPA in Manipur — voices from the ground, explained.</p>
+          <a href="https://youtu.be/YzTpTXvYCSw" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+
+
+
+<!-- Video Card 1 -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/OLu-FfaO4Fs?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          मणिपुर को लेकर NSUI का हल्लाबोल। सरकार पर साधा निशाना।MANIPUR। MANIPUR NEWS। NSUI। EK SOCH।
+        </h5>
+        <p class="card-text text-muted">
+          मणिपुर हिंसा को लेकर NSUI ने सड़कों पर उतरकर सरकार के खिलाफ प्रदर्शन किया। इस वीडियो में जानिए NSUI के नेताओं ने क्या कहा और क्या हैं उनके मुख्य मुद्दे।
+        </p>
+        <a href="https://youtu.be/OLu-FfaO4Fs" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card 2 -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/TxTzTdYLJtQ?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          2024 में 'India' vs 'NDA' | क्या है विपक्षी पार्टियों का नया 'India'|2024 loksabha election| ek soch
+        </h5>
+        <p class="card-text text-muted">
+          2024 लोकसभा चुनाव को लेकर INDIA गठबंधन और NDA में टक्कर तेज हो गई है। इस वीडियो में देखिए विपक्ष ने 'INDIA' नाम क्यों चुना और इसका क्या होगा असर।
+        </p>
+        <a href="https://youtu.be/TxTzTdYLJtQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card 3 -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/HwbqRLvmcNM?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          काशी विद्यापीठ यूनिवर्सिटी के छात्र नेता ने मुख्यमंत्री से की बड़ी मांग। जल्द हो चुनाव
+        </h5>
+        <p class="card-text text-muted">
+          काशी विद्यापीठ के छात्र नेता ने मुख्यमंत्री योगी आदित्यनाथ से छात्रसंघ चुनाव जल्द कराने की मांग की। देखिए पूरी रिपोर्ट और छात्र नेता का बयान।
+        </p>
+        <a href="https://youtu.be/HwbqRLvmcNM" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card 4 -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/sY79lpgJzOA?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          MGKVP में छात्र संघ चुनाव क्यों नहीं हो रहे?| योगी सरकार को छात्र संघ से किस बात का डर ? | EK SOCH
+        </h5>
+        <p class="card-text text-muted">
+          आखिर MGKVP में छात्रसंघ चुनाव क्यों नहीं हो रहे हैं? क्या योगी सरकार छात्रसंघ से डरती है? जानिए छात्रों की नाराजगी और उनकी मांगें।
+        </p>
+        <a href="https://youtu.be/sY79lpgJzOA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card 5 -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/rXOpAVMCGdU?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          सुप्रीम कोर्ट ने मोदी सरकार को दिया तगड़ा झटका | CANCELLATION OF ELECTORAL BOND | Ek soch
+        </h5>
+        <p class="card-text text-muted">
+          सुप्रीम कोर्ट ने मोदी सरकार को बड़ा झटका देते हुए इलेक्टोरल बॉन्ड को असंवैधानिक घोषित किया। इस वीडियो में समझिए पूरा मामला और इसके राजनीतिक मायने।
+        </p>
+        <a href="https://youtu.be/rXOpAVMCGdU" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+<!-- Video Card: Indian Railway -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/SBiC81WEnos?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          Indian Railway | कहाँ से कहाँ आ गई भारतीय रेलवे | Ek Soch
+        </h5>
+        <p class="card-text text-muted">
+          भारतीय रेलवे की ऐतिहासिक यात्रा और विकास को दर्शाता यह वीडियो बताता है कि कैसे रेल ने भारत की अर्थव्यवस्था और समाज को बदल दिया। जानिए रेलवे की अनसुनी कहानियाँ।
+        </p>
+        <a href="https://youtu.be/SBiC81WEnos" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card: Nitish Kumar Joined NDA -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/Hs476qtIdS0?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          Nitish Kumar Joined NDA | Ek SOCH
+        </h5>
+        <p class="card-text text-muted">
+          बिहार की राजनीति में बड़ा उलटफेर! मुख्यमंत्री नीतीश कुमार ने एक बार फिर NDA का दामन थाम लिया। जानिए इसके पीछे की राजनीति और क्या होगा इसका असर 2024 चुनाव पर।
+        </p>
+        <a href="https://youtu.be/Hs476qtIdS0" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Card: PM Modi's Scholar Scheme -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/V0FIiz8KkfQ?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+          PM MODI ANNOUNCE A BIG SCHOLAR SCHEME | Ek Soch
+        </h5>
+        <p class="card-text text-muted">
+          प्रधानमंत्री नरेंद्र मोदी ने छात्रों के लिए एक बड़ी स्कॉलरशिप योजना की घोषणा की है। इस वीडियो में जानिए स्कीम के फायदे, पात्रता और इसका छात्रों पर क्या प्रभाव पड़ेगा।
+        </p>
+        <a href="https://youtu.be/V0FIiz8KkfQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+<!-- Happy Holi we asked AI to Generate!! -->
+<div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/7B1tl3nXfoQ?rel=0&modestbranding=1"
+                title="Happy Holi AI Generated"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">Happy Holi we asked AI to Generate!!</h5>
+        <p class="card-text text-muted">What happens when AI celebrates Holi? Check out this unique AI-generated Holi celebration by Ek Soch!</p>
+        <a href="https://youtu.be/7B1tl3nXfoQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Facts About India's New Parliament -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/OnxHScYbfLw?rel=0&modestbranding=1"
+                title="India's New Parliament | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">FACTS ABOUT INDIA'S NEW PARLIAMENT | NEW PARLIAMENT BUILDING IN INDIA | EK SOCH</h5>
+        <p class="card-text text-muted">Explore unknown facts about India's iconic new Parliament building with Ek Soch.</p>
+        <a href="https://youtu.be/OnxHScYbfLw" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ashok Gehlot Exposed -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/lcht_BDinNA?rel=0&modestbranding=1"
+                title="Ashok Gehlot Exposed | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">ASHOK GEHLOT EXPOSED | EK SOCH</h5>
+        <p class="card-text text-muted">A hard-hitting political commentary by Ek Soch on Ashok Gehlot’s recent controversies.</p>
+        <a href="https://youtu.be/lcht_BDinNA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Indian Seema Haidar | Anju -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/dJeficUDzqE?rel=0&modestbranding=1"
+                title="Seema Haidar and Anju | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">INDIAN SEEMA HAIDAR | ANJU | EK SOCH</h5>
+        <p class="card-text text-muted">An eye-opening look into the stories of Seema Haidar and Anju by the Ek Soch team.</p>
+        <a href="https://youtu.be/dJeficUDzqE" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Neeraj Chopra Created History -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/m9x1WrcmKwA?rel=0&modestbranding=1"
+                title="Neeraj Chopra Historic Win | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">NEERAJ CHOPRA CREATED HISTORY INDIAN FIRST MEDAL AFTER 2002 | EK SOCH</h5>
+        <p class="card-text text-muted">Celebrate India’s pride — Neeraj Chopra's historic athletic feat, covered by Ek Soch.</p>
+        <a href="https://youtu.be/m9x1WrcmKwA" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Aditya L1 Mission -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/Nlnib85MxRU?rel=0&modestbranding=1"
+                title="Aditya L1 Mission | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">ADITYA L1 MISSION | EK SOCH</h5>
+        <p class="card-text text-muted">A quick insight into India’s solar journey – the Aditya L1 mission decoded by Ek Soch.</p>
+        <a href="https://youtu.be/Nlnib85MxRU" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hemant Sorain Lapatah -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <iframe src="https://www.youtube.com/embed/gbitK0bi2_Y?rel=0&modestbranding=1"
+                title="Hemant Soren Missing? | Ek Soch"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top"></iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">HEMANT SORAIN LAPATAH | EK SOCH</h5>
+        <p class="card-text text-muted">Where is Hemant Soren? Ek Soch investigates the political disappearance saga.</p>
+        <a href="https://youtu.be/gbitK0bi2_Y" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">🔗 Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+  <!-- Video Card 2 -->
+  <div class="col-md-6 col-lg-4 mb-5 animate__animated animate__fadeInUp">
+    <div class="card shadow border-0 rounded-4">
+      <div class="ratio ratio-16x9 rounded-top overflow-hidden">
+        <!-- Working YouTube Embed -->
+        <iframe src="https://www.youtube.com/embed/BpCj1HEVfAQ?rel=0&modestbranding=1"
+                title="Ek Soch - MGKVP Journalism"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                class="rounded-top">
+        </iframe>
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title fw-semibold">
+            Piyush Goyal Ka Bda Daawa | Ek Soch
+        </h5>
+        <p class="card-text text-muted">
+          Piyush Goyal talks abour repo rate of RBI.
+        </p>
+        <a href="https://youtu.be/BpCj1HEVfAQ" target="_blank" class="btn btn-dark px-4 py-2 mt-2 shadow-sm">
+          🔗 Watch on YouTube
+        </a>
+      </div>
+    </div>
+   </div>
+
+
+    <!-- Duplicate the above block for more videos -->
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- OLD VIDEO THUMBNAILS SECTION -->
+<div class="container my-5">
+  <h2 class="text-center mb-5 display-5 fw-bold">OLD VIDEO THUMBNAILS</h2>
+  <div id="thumbnail" class="row justify-content-center g-4">
+
+    <!-- Thumbnail 1 -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/1.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 1">
+      </div>
+    </div>
+
+    <!-- Thumbnail 2 -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/2.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 2">
+      </div>
+    </div>
+
+    <!-- Thumbnail 3 -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/3.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/4.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/5.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/6.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/7.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/8.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/9.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/10.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/11.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/12.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/13.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/14.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/15.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/16.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/17.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/18.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/19.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/20.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/21.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/22.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/23.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/24.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/25.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/26.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/27.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/28.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/29.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/30.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/31.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/32.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/33.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/34.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+      <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
+        <img src="thumbnail/35.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Old Thumbnail 3">
+      </div>
+    </div>
+
+    <!-- Add more thumbnails as needed -->
+
+  </div>
+</div>
+
+<!-- OUR YOUTUBE CHANNEL SECTION -->
+<!-- OUR YOUTUBE GALLERY SECTION -->
+<div class="container my-5">
+  <h2 class="text-center mb-4 display-5 fw-bold">Our YouTube Gallery</h2>
+<div class="text-center mt-4">
+    <a href="https://youtube.com/@eksochteam?si=VH3qvYFGU0GsAt3h" 
+       target="_blank" 
+       class="btn btn-danger btn-lg shadow-lg fw-bold">
+      🔴 View on YouTube
+    </a>
+  </div>
+  <!-- Elfsight YouTube Gallery Embed -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+  <div class="elfsight-app-11341393-a6d1-426f-b2d3-4115e01a836f" data-elfsight-app-lazy></div>
+
+  
+</div>
+
+
+
+
+
+<div class="container my-5 text-center">
+  <h2 class="text-center mb-5 display-5 fw-bold">EXPLORE MORE</h2>
+
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    
+    
+    <a href="https://teameksoch.blogspot.com" target="_blank" class="glow-btn">Our Blog</a>
+    <a href="https://www.instagram.com/team.eksoch/" target="_blank" class="glow-btn">Instagram</a>
+    <a href="https://youtube.com/@eksochoffical?si=-l9Bxi31CoMnoHuW" target="_blank" class="glow-btn">New Youtube Channel</a>
+    <a href="https://chat.whatsapp.com/Im7qVdo3SgX22weOw8FfdZ" target="_blank" class="glow-btn">WhatsApp Group</a>
+
+
+
+
+
+  </div>
+</div>
+
+
+      
+
+      
+      <div class="section-heading">Life at MGKVP</div>
+      <p class="lead">Some have exited, others have moved to different fields — but the memories at MGKVP BA Hons Mass Communication will stay forever. The fun, the masti, the mazaak — unforgettable. And to Shreya, your loss hurts deeply. Rest in Peace.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2022-2024 Team Ek Soch | Journalism - MGKVP</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/team.eksoch/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://chat.whatsapp.com/Im7qVdo3SgX22weOw8FfdZ" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://teameksoch.blogspot.com" target="_blank"><i class="fas fa-blog"></i></a>
+     
+     
+     
+     
+     
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const main = document.getElementById("main-content");
+      sidebar.classList.toggle("show");
+      main.classList.toggle("shift");
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
